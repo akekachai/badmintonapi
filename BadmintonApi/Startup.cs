@@ -41,7 +41,7 @@ namespace BadmintonApi
             });
 
 
-            services.AddScoped<IpersonsRepositories<persons, int>, personsRepository>();
+            services.AddScoped<IpersonsRepositories<persons, int,string>, personsRepository>();
             services.AddScoped<IclubRepositories<clubs, int>, clubRepository>();
             services.AddScoped<ImatchRepositories<matchs, int>, matchRepository>();
             services.AddScoped<IclubmemberRepositories<clubmember, int>, clubmemberRepository>();
