@@ -26,7 +26,7 @@ namespace BadmintonApi.Repositories
 
         public async Task<IReadOnlyList<persons>> GetByUserId(string T3)
         {
-            return await _context.persons.Where(p => p.UserId == T3).ToListAsync(); ;
+            return await _context.persons.Where(p => p.userid == T3).ToListAsync(); ;
         }
 
         public async Task Insert(persons entity)

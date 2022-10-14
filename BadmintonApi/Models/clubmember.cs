@@ -7,12 +7,12 @@ namespace BadmintonApi.Models
 {
     public class clubmember
     {
-        public int Id { get; set; }
-        public int ClubId { get; set; }
-        public string DisplayName { get; set; }
-        public int UserId { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
-        public string ActiveFlag { get; set; }
+        public int id { get; set; }
+        public int clubid { get; set; }
+        public string displayname { get; set; }
+        public int userid { get; set; }
+        public DateTime createdate { get; set; }
+        public DateTime updatedate { get; set; }
+        public string activeflag { get; set; }
     }
 }

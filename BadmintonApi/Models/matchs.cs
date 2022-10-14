@@ -7,17 +7,17 @@ namespace BadmintonApi.Models
 {
     public class matchs
     {
-        public int Id { get; set; }
-        public int MatchId { get; set; }
-        public DateTime MatchDate { get; set; }
-        public int ClubId { get; set; }
+        public int id { get; set; }
+        public int matchid { get; set; }
+        public DateTime matchdate { get; set; }
+        public int clubid { get; set; }
 
-        public int PlayerAmount { get; set; }
+        public int playeramount { get; set; }
 
-        public int Price1 { get; set; }
-        public int Price2 { get; set; }
-        public DateTime CreateDate { get; set; }
-        public string ActiveFlag { get; set; }
+        public int price1 { get; set; }
+        public int price2 { get; set; }
+        public DateTime createdate { get; set; }
+        public string activeflag { get; set; }
     }
 }
  

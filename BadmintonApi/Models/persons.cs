@@ -8,13 +8,13 @@ namespace BadmintonApi.Models
     public class persons
     {
 
-        public int Id { get; set; }
-        public string UserId { get; set; }
-        public string DisplayName { get; set; }
-        public DateTime CreateDate { get; set; }
-        public int CreateUserId { get; set; }
-        public DateTime UpdateDate { get; set; }
-        public int UpdateUserId { get; set; }
-        public string ActiveFlag { get; set; }
+        public int id { get; set; }
+        public string userid { get; set; }
+        public string displayname { get; set; }
+        public DateTime createdate { get; set; }
+        public int createuserid { get; set; }
+        public DateTime updatedate { get; set; }
+        public int updateuserid { get; set; }
+        public string activeflag { get; set; }
     }
 }
