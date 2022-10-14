@@ -13,8 +13,8 @@ namespace BadmintonApi.Controllers
     [ApiController]
     public class PersonsController : ControllerBase
     {
-        private readonly IpersonsRepositories<persons, int> _ipersonsRepositories;
-        public PersonsController(IpersonsRepositories<persons, int> ipersonsRepositories)
+        private readonly IpersonsRepositories<persons, int,string> _ipersonsRepositories;
+        public PersonsController(IpersonsRepositories<persons, int,string> ipersonsRepositories)
         {
             _ipersonsRepositories = ipersonsRepositories;
         }
@@ -48,10 +48,19 @@ namespace BadmintonApi.Controllers
             }
         }
 
-        [HttpGet]
-        public async Task<IActionResult> get(persons _persons)
-        { 
-        
+        [HttpGet("userid")]
+        public async Task<IActionResult> get(string userid)
+        {
+            try
+            {
+                var data = await _ipersonsRepositories.GetByUserId(userid);
+                return Ok(new { data = data, suceess = true, message = "" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
+
         }
     }
 }

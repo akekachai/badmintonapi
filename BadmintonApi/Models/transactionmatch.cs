@@ -24,6 +24,7 @@ namespace BadmintonApi.Models
         public DateTime CreateDate { get; set; }
      
         public string ActiveFlag { get; set; }
+        public  string matchref { get; set; }
 
     }
 }

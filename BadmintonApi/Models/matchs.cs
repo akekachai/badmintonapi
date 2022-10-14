@@ -14,7 +14,8 @@ namespace BadmintonApi.Models
 
         public int PlayerAmount { get; set; }
 
-        public int Price { get; set; }
+        public int Price1 { get; set; }
+        public int Price2 { get; set; }
         public DateTime CreateDate { get; set; }
         public string ActiveFlag { get; set; }
     }
