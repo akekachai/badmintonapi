@@ -20,7 +20,7 @@ namespace BadmintonApi.Repositories
 
         public async Task<IReadOnlyList<transactionmatch>> GetByMatchId(int T2)
         {
-            return await _context.transactionmatch.Where(tm => tm.MatchId == T2).ToListAsync();
+            return await _context.transactionmatch.Where(tm => tm.matchid == T2).ToListAsync();
         }
 
         public async Task<IReadOnlyList<transactionmatch>> GetByPlayerId(int T2)
