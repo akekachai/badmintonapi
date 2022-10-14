@@ -1,21 +1,22 @@
-#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
-WORKDIR /app
-EXPOSE 80
-
+# https://hub.docker.com/_/microsoft-dotnet
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /src
-COPY ["BadmintonApi/BadmintonApi.csproj", "BadmintonApi/"]
-RUN dotnet restore "BadmintonApi/BadmintonApi.csproj"
-COPY . .
-WORKDIR "/src/BadmintonApi"
-RUN dotnet build "BadmintonApi.csproj" -c Release -o /app/build
-
-FROM build AS publish
-RUN dotnet publish "BadmintonApi.csproj" -c Release -o /app/publish
-
-FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+
+# copy csproj and restore as distinct layers
+#COPY *.sln .
+COPY *.csproj ./
+RUN dotnet restore
+
+# copy everything else and build app
+COPY . ./
+#WORKDIR /app
+RUN dotnet publish -c release -o out
+#--no-restore
+
+# final stage/image
+FROM mcr.microsoft.com/dotnet/aspnet:5.0
+WORKDIR /app
+RUN mkdir -p Documents
+COPY --from=build /app/out .
+EXPOSE 80
 ENTRYPOINT ["dotnet", "BadmintonApi.dll"]
