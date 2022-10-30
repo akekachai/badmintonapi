@@ -16,11 +16,11 @@ namespace BadmintonApi.Models
         public DateTime updatedate { get; set; }
         public int updateuserid { get; set; }
         public string activeflag { get; set; }
-        public string password { get; set; }
-        public string jwtcode { get; set; }
+        public string? password { get; set; }
+        public string? jwtcode { get; set; }
 
-        public string refreshtoken { get; set; }
-        public DateTime expirestoken { get; set; }
+        public string? refreshtoken { get; set; }
+        public DateTime? expirestoken { get; set; }
 
     }
 }
