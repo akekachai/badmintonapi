@@ -30,6 +30,12 @@ namespace BadmintonApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin());
+            });
+
             services.AddDbContext<BadmintonContext>(options =>
           options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -57,6 +63,11 @@ namespace BadmintonApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BadmintonApi v1"));
             }
+
+            app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 
             app.UseRouting();
 
