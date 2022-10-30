@@ -24,5 +24,7 @@ namespace BadmintonApi.Data
         public virtual DbSet<matchs> matchs { get; set; }
         public virtual DbSet<transactionmatch> transactionmatch { get; set; }
 
+        public virtual DbSet<RefreshTokens> RefreshTokens { get; set; }
+
     }
 }
