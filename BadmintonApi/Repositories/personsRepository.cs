@@ -28,6 +28,20 @@ namespace BadmintonApi.Repositories
         public AuthenticateResponse Authenticate(AuthenticateRequest model, string ipAddress)
         {
             var appuser = _context.persons.SingleOrDefault(x => x.userid == model.userid && x.password == model.password);
+            if (model.platform != null || model.platform != "line")
+            {
+            
+               var appuser2= _context.persons.SingleOrDefault(x => x.userid == model.userid );
+                //appuser.userid = model.userid;
+                //appuser.displayname = appuser2.displayname;
+                //appuser.id = appuse
+                //appuser.activeflag = appuser2.acr2.id;tiveflag;
+                appuser = appuser2;
+
+
+            }
+
+            
 
             if (appuser == null) return null;
 
