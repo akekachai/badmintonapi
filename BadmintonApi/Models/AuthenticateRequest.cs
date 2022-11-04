@@ -12,5 +12,7 @@ namespace BadmintonApi.Models
         public string userid { get; set; }
 
         public string password { get; set; }
+
+        public string platform { get; set; }
     }
 }

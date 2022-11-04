@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -51,11 +52,16 @@ namespace BadmintonApi.Controllers
             }
         }
 
-        [HttpGet("userid")]
-        public async Task<IActionResult> get(string userid)
+        [Authorize]
+        [HttpGet()]
+        public async Task<IActionResult> get()
         {
             try
             {
+                var identity = HttpContext.User.Identity as ClaimsIdentity;
+                IList<Claim> claim = identity.Claims.ToList();
+                var userid = claim[0].Value;
+
                 var data = await _ipersonsRepositories.GetByUserId(userid);
                 return Ok(new { data = data, suceess = true, message = "" });
             }
